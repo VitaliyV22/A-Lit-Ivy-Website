@@ -13,30 +13,50 @@
     <div class="menuTwo">
       <a href="home.html" id="logo"> A Lit Ivy</a>
       <a href="/music.html">Music</a>
-      <a href="https://www.youtube.com/channel/UCRt__-4jysduEijH1j1IJJQ">Videos</a>
+      <a href="https://www.youtube.com/channel/UCRt__-4jysduEijH1j1IJJQ"
+        >Videos</a
+      >
       <a href="/contact.html">Contact</a>
       <a href="/radio.html">radio</a>
     </div>
-<style>
-    #map {
+    <style>
+      #map {
+        margin-top: 20px;
         width: 100%;
-        height: 600px;
-    }
-</style>
-  <div id="map"></div>
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0);
+      }
+    </style>
+    <div id="map"></div>
 
-  <script>
-    const map = L.map('map').setView([51.505, -0.09], 13);
+    <script>
+      const map = L.map("map").setView([30, -25], 3.5);
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+      //icon
+      const myIcon = L.icon({
+        iconUrl: "/radio-antenna.png",
+        iconSize: [30,30],
+      
+      });
+      //chicago
+      const chicago = L.marker([41.8781, -87.6298], {icon: myIcon}).addTo(map).bindPopup("Chicago").openPopup();
 
-L.marker([51.5, -0.09]).addTo(map)
-    .bindPopup('A pretty CSS popup.<br> Easily customizable.')
-    .openPopup();
-  </script>
+      // tile layer
+      var Jawg_Matrix = L.tileLayer(
+        "https://{s}.tile.jawg.io/jawg-matrix/{z}/{x}/{y}{r}.png?access-token={accessToken}",
+        {
+          attribution:
+            '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          minZoom: 4,
+          maxZoom: 5,
 
-    
+          subdomains: "abcd",
+          accessToken:
+            "hn5kmXxWWOt8euSd433co9RRNzW1eCXooBwj5G1hiLpigxrYau2cXg7KeWy0W6Yl",
+        }
+      );
+
+      Jawg_Matrix.addTo(map);
+    </script>
   </body>
 </html>
