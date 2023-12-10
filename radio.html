@@ -23,10 +23,12 @@
       #map {
         margin-top: 20px;
         width: 100%;
-        height: 100vh;
+        height: 800px;
         background-color: rgba(0, 0, 0, 0);
       }
     </style>
+
+    <div id="time"></div>
     <div id="map"></div>
 
     <script>
@@ -35,11 +37,19 @@
       //icon
       const myIcon = L.icon({
         iconUrl: "/radio-antenna.png",
-        iconSize: [30,30],
-      
+        iconSize: [30, 30],
       });
       //chicago
-      const chicago = L.marker([41.8781, -87.6298], {icon: myIcon}).addTo(map).bindPopup("Chicago").openPopup();
+      const chicago = L.marker([41.8781, -87.6298], { icon: myIcon })
+        .addTo(map)
+        .bindPopup("Chicago")
+        .openPopup();
+
+        //london
+        const london = L.marker([51.5072, -0.1276], { icon: myIcon })
+        .addTo(map)
+        .bindPopup("London")
+        .openPopup();
 
       // tile layer
       var Jawg_Matrix = L.tileLayer(
@@ -57,6 +67,9 @@
       );
 
       Jawg_Matrix.addTo(map);
+
+
+      
     </script>
   </body>
 </html>

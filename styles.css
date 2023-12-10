@@ -74,5 +74,11 @@ body {
   padding: 5px;
   color: #fff;
 }
-
-
+#time {
+  font-size: 15px;
+  position: absolute;
+  right: 50%;
+  top: 20px;
+  color: #fff;
+  font-family: monospace;
+}
