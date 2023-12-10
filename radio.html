@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radio</title>
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/Leaflet/leaflet.css" />
+    <script src="/Leaflet/leaflet.js"></script>
+  </head>
+  <body>
+    <div class="menuTwo">
+      <a href="home.html" id="logo"> A Lit Ivy</a>
+      <a href="/music.html">Music</a>
+      <a href="https://www.youtube.com/channel/UCRt__-4jysduEijH1j1IJJQ">Videos</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/radio.html">radio</a>
+    </div>
+<style>
+    #map {
+        width: 100%;
+        height: 600px;
+    }
+</style>
+  <div id="map"></div>
+
+  <script>
+    const map = L.map('map').setView([51.505, -0.09], 13);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+L.marker([51.5, -0.09]).addTo(map)
+    .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+    .openPopup();
+  </script>
+
+    
+  </body>
+</html>
